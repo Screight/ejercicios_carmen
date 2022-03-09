@@ -5,7 +5,7 @@ class GraphSearchDFS {
 enum{visited, unvisited, no_parent_assigned};
 
 private:
-	const SparseGraph& m_graph;
+	SparseGraph& m_graph;
 	// records the indexes of all the nodes that are visited as the search progresses
 	// contains the same number of elements as there are nodes in the graphs
 	std::vector<int> m_visitedNodes;
@@ -16,8 +16,8 @@ private:
 	bool m_isTargetFound;
 
 public:
-	GraphSearchDFS(const SparseGraph& graph, int p_sourceIndex);
-	void Search();
+	GraphSearchDFS(SparseGraph& graph, int p_sourceIndex, int p_targetIndex);
+	bool Search();
 	bool IsFound() const { return m_isTargetFound; }
-	std::list<int> GetPathToTarget() const {};
+	std::vector<int> GetPathToTarget() const;
 };

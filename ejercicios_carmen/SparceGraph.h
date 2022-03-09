@@ -62,6 +62,13 @@ public:
 		m_edges[p_edge.GetOriginNodeIndex()].push_back(p_edge);
 	}
 
+	// return the edges of a determined node
+	std::vector<GraphEdge>* GetEdges(int p_index) {
+			if (p_index >= 0 && p_index < m_nodes.size()) {
+					return &m_edges[p_index];
+			}
+	}
+
 	void RemoveEdge(int p_originNodeIndex, int p_destinationNodeIndex) {
 		if (p_originNodeIndex >= m_nodes.size()) { return; }
 		if (p_destinationNodeIndex >= m_nodes.size()) { return; }
@@ -79,7 +86,7 @@ public:
 	int NumberOfActiveNodes()const {
 		int numberOfActiveNodes = 0;
 		for (int i = 0; i < m_nodes.size(); i++) {
-			if (m_nodes[i].Index() > 0) { numberOfActiveNodes++; }
+			if (m_nodes[i].Index() >= 0) { numberOfActiveNodes++; }
 		}
 		return numberOfActiveNodes;
 	}

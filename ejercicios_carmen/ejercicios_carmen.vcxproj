@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="GraphNode.h" />
+    <ClCompile Include="GraphSearchDFS.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NavigationGraphNode.h" />
   </ItemGroup>

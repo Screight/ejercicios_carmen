@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
-#include "SparceGraph.h"
+#include <list>
+#include "GraphSearchDFS.h"
 
 int PotenciaNumeroEntero(int p_base, int p_exponente, int p_número);
 void PrintTriangulo(int p_baseWidth);
@@ -12,33 +13,48 @@ int main() {
 
 	SparseGraph graph = new SparseGraph(true);
 	
-	for (int i = 0; i < 6; i++) {
+	for (int i = 0; i < 13; i++) {
 		NavigationGraphNode node = NavigationGraphNode(Vector2D<float>(1, 1));
 		node.SetIndex(i);
 		graph.AddNode(node);
 	}
 
-	graph.AddEdge(GraphEdge(4,1));
-	graph.AddEdge(GraphEdge(1,4));
 	graph.AddEdge(GraphEdge(1,0));
 	graph.AddEdge(GraphEdge(0,1));
 	graph.AddEdge(GraphEdge(0,2));
 	graph.AddEdge(GraphEdge(2,0));
-	graph.AddEdge(GraphEdge(2,3));
-	graph.AddEdge(GraphEdge(3,2));
-	graph.AddEdge(GraphEdge(3,4));
-	graph.AddEdge(GraphEdge(4,3));
-	graph.AddEdge(GraphEdge(4,5));
+	graph.AddEdge(GraphEdge(2,9));
+	graph.AddEdge(GraphEdge(9,2));
+	graph.AddEdge(GraphEdge(9,3));
+	graph.AddEdge(GraphEdge(3,9));
+	graph.AddEdge(GraphEdge(0,8));
+	graph.AddEdge(GraphEdge(8,0));
+	graph.AddEdge(GraphEdge(8,12));
+	graph.AddEdge(GraphEdge(12,8));
+	graph.AddEdge(GraphEdge(12,7));
+	graph.AddEdge(GraphEdge(7,12));
+	graph.AddEdge(GraphEdge(3,11));
+	graph.AddEdge(GraphEdge(11,3));
+	graph.AddEdge(GraphEdge(11,6));
+	graph.AddEdge(GraphEdge(6,11));
+	graph.AddEdge(GraphEdge(6,4));
+	graph.AddEdge(GraphEdge(4,6));
+	graph.AddEdge(GraphEdge(4,10));
+	graph.AddEdge(GraphEdge(10,4));
 	graph.AddEdge(GraphEdge(5,4));
-	graph.AddEdge(GraphEdge(3,5));
-	graph.AddEdge(GraphEdge(5,3));
+	graph.AddEdge(GraphEdge(4,5));
 
-	for (int i = 0; i < 6; i++) {
-		GraphEdge edge = graph.GetEdge(1, 4);
-		std::cout << edge.GetDestinationNodeIndex() << std::endl;
+	GraphSearchDFS graphSearch = GraphSearchDFS(graph, 10, 1);
+	graphSearch;
+
+	if (graphSearch.IsFound()) {
+			std::vector<int> pathToTarget = graphSearch.GetPathToTarget();
+			for (int i = 0; i < pathToTarget.size(); i++) {
+					std::cout << pathToTarget[i] << std::endl;
+			}
 	}
-}
 
+}
 
 int PotenciaNumeroEntero(int p_base, int p_exponente, int p_numero) {
 
