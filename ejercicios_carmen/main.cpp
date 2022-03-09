@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include "SparceGraph.h"
 
 int PotenciaNumeroEntero(int p_base, int p_exponente, int p_número);
 void PrintTriangulo(int p_baseWidth);
@@ -9,11 +10,35 @@ int SumaVector(std::vector<int> p_numbers, int position);
 
 int main() {
 
-		std::vector<int> numbers{ 1,2,3,4,5 };
-		std::cout << SumaVector(numbers, 0);
+	SparseGraph graph = new SparseGraph(true);
+	
+	for (int i = 0; i < 6; i++) {
+		NavigationGraphNode node = NavigationGraphNode(Vector2D<float>(1, 1));
+		node.SetIndex(i);
+		graph.AddNode(node);
+	}
 
-		return 0;
+	graph.AddEdge(GraphEdge(4,1));
+	graph.AddEdge(GraphEdge(1,4));
+	graph.AddEdge(GraphEdge(1,0));
+	graph.AddEdge(GraphEdge(0,1));
+	graph.AddEdge(GraphEdge(0,2));
+	graph.AddEdge(GraphEdge(2,0));
+	graph.AddEdge(GraphEdge(2,3));
+	graph.AddEdge(GraphEdge(3,2));
+	graph.AddEdge(GraphEdge(3,4));
+	graph.AddEdge(GraphEdge(4,3));
+	graph.AddEdge(GraphEdge(4,5));
+	graph.AddEdge(GraphEdge(5,4));
+	graph.AddEdge(GraphEdge(3,5));
+	graph.AddEdge(GraphEdge(5,3));
+
+	for (int i = 0; i < 6; i++) {
+		GraphEdge edge = graph.GetEdge(1, 4);
+		std::cout << edge.GetDestinationNodeIndex() << std::endl;
+	}
 }
+
 
 int PotenciaNumeroEntero(int p_base, int p_exponente, int p_numero) {
 
