@@ -1,3 +1,5 @@
+#ifndef  GRAPH_EDGE
+#define GRAPH_EDGE
 
 class GraphEdge {
 protected:
@@ -22,3 +24,4 @@ public:
 	float SetCost(float p_value) { m_cost = p_value; }
 
 };
+#endif

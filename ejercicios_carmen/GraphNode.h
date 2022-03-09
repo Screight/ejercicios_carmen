@@ -1,3 +1,6 @@
+#ifndef GRAPH_NODE
+#define GRAPH_NODE
+
 class GraphNode {
 
 protected:
@@ -14,3 +17,5 @@ public:
 	void SetIndex(int p_index) { m_index = p_index; }
 
 };
+
+#endif // ! GRAPH_NODE

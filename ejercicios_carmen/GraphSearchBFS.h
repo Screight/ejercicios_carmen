@@ -1,11 +1,11 @@
-#ifndef  GRAPH_SEARCH_DFS
-#define GRAPH_SEARCH_DFS
+#ifndef  GRAPH_SEARCH_BFS
+#define GRAPH_SEARCH_BFS
 
 #include "SparceGraph.h"
 
-class GraphSearchDFS {
+class GraphSearchBFS {
 
-enum{visited, unvisited, no_parent_assigned};
+	enum { visited, unvisited, no_parent_assigned };
 
 private:
 	SparseGraph& m_graph;
@@ -19,10 +19,10 @@ private:
 	bool m_isTargetFound;
 
 public:
-	GraphSearchDFS(SparseGraph& graph, int p_sourceIndex, int p_targetIndex);
+	GraphSearchBFS(SparseGraph& graph, int p_sourceIndex, int p_targetIndex);
 	bool Search();
 	bool IsFound() const { return m_isTargetFound; }
 	std::vector<int> GetPathToTarget() const;
 };
 
-#endif // ! GRAPH_SEARCH_DFS
+#endif

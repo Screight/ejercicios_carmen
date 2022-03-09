@@ -140,12 +140,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="GraphNode.h" />
+    <ClCompile Include="GraphSearchBFS.cpp" />
     <ClCompile Include="GraphSearchDFS.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NavigationGraphNode.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GraphEdge.h" />
+    <ClInclude Include="GraphSearchBFS.h" />
     <ClInclude Include="GraphSearchDFS.h" />
     <ClInclude Include="SparceGraph.h" />
     <ClInclude Include="Vector2D.h" />

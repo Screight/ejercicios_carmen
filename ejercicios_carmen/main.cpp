@@ -2,6 +2,7 @@
 #include <vector>
 #include <list>
 #include "GraphSearchDFS.h"
+#include "GraphSearchBFS.h"
 
 int PotenciaNumeroEntero(int p_base, int p_exponente, int p_número);
 void PrintTriangulo(int p_baseWidth);

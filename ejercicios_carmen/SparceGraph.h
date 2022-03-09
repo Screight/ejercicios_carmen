@@ -1,3 +1,6 @@
+#ifndef SPARSE_GRAPH
+#define SPARSE_GRAPH
+
 #include <vector>
 #include <list>
 #include "GraphEdge.h"
@@ -122,3 +125,5 @@ public:
 	}
 
 };
+
+#endif // !1
